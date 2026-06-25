@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Juridico Dra Rocio Morales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4af37;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #d4af37;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 20px;
+            text-align: center;
+            background-color: #1a1a1a;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #d4af37;
+            color: #1a1a1a;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #e5c158;
+        }
+        
+        /* Sección About */
+        .about {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+        
+        .about p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .about-link {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* Servicios */
+        .servicios {
+            background: #f9f9f9;
+            padding: 80px 20px;
+        }
+        
+        .servicios-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .servicios h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+        }
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .servicio-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .servicio-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .servicio-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .servicio-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        
+        .servicio-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* Estadísticas */
+        .stats {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 20px;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 48px;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            font-size: 16px;
+            color: #ccc;
+        }
+        
+        /* Noticias */
+        .noticias {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .noticias h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+        
+        .noticias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .noticia-card {
+            border-left: 4px solid #d4af37;
+            padding-left: 20px;
+        }
+        
+        .noticia-tag {
+            display: inline-block;
+            background: #d4af37;
+            color: #1a1a1a;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .noticia-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        
+        .noticia-card a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        
+        .noticia-fecha {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+        
+        /* Testimonios */
+        .testimonios {
+            background: #f9f9f9;
+            padding: 80px 20px;
+        }
+        
+        .testimonios-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonios h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+        }
+        
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonio-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonio-card p {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .testimonio-autor {
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #d4af37;
+            color: #1a1a1a;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #e5c158;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">Dra. Rocio Morales</a>
+            <nav>
+                <ul>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#noticias">Noticias</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Asesoramiento Legal Especializado</h1>
+        <p>Defendiendo tus derechos con profesionalismo y experiencia</p>
+        <a href="#contacto" class="cta-button">Contáctanos ahora</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about">
+        <h2>Contamos con más de 15 años de experiencia en la profesión</h2>
+        <p>Somos un equipo de profesionales del derecho especializados en proporcionar asesoramiento legal integral y personalizado. Nuestro compromiso es defender tus derechos de manera efectiva y profesional, en cada caso que se nos presente.</p>
+        <p><a href="#" class="about-link">Conocer más</a></p>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="servicios">
+        <div class="servicios-container">
+            <h2>Brindamos soluciones legales confiables</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-icon">⚖️</div>
+                    <h3>Derecho Civil</h3>
+                    <p>Asesoramiento integral en materia civil, incluyendo contratos, sucesiones y responsabilidad civil.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">👥</div>
+                    <h3>Derecho Laboral</h3>
+                    <p>Protección de derechos laborales y representación en conflictos entre empleadores y empleados.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">🏠</div>
+                    <h3>Derecho Inmobiliario</h3>
+                    <p>Asesoramiento en operaciones inmobiliarias, compraventa y cuestiones relacionadas con bienes raíces.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">🛡️</div>
+                    <h3>Derecho Administrativo</h3>
+                    <p>Representación ante organismos administrativos y defensa de derechos frente a la administración.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Años de Experiencia</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Casos Resueltos</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Compromiso</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Confidencialidad</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Noticias -->
+    <section id="noticias" class="noticias">
+        <h2>Actualidad Jurídica</h2>
+        <div class="noticias-grid">
+            <div class="noticia-card">
+                <span class="noticia-tag">Derecho Civil</span>
+                <h3>Cambios en la normativa de responsabilidad civil</h3>
+                <p>Análisis de las últimas modificaciones en materia de responsabilidad civil y su impacto en los casos actuales.</p>
+                <a href="#">Leer más →</a>
+                <div class="noticia-fecha">Junio 15, 2026</div>
+            </div>
+            <div class="noticia-card">
+                <span class="noticia-tag">Derecho Laboral</span>
+                <h3>Nuevos derechos en materia laboral</h3>
+                <p>Últimas novedades sobre derechos laborales y su aplicación en conflictos empresariales.</p>
+                <a href="#">Leer más →</a>
+                <div class="noticia-fecha">Junio 10, 2026</div>
+            </div>
+            <div class="noticia-card">
+                <span class="noticia-tag">Derecho Inmobiliario</span>
+                <h3>Operaciones inmobiliarias: consideraciones legales</h3>
+                <p>Guía completa sobre qué tener en cuenta al realizar operaciones inmobiliarias para proteger tus intereses.</p>
+                <a href="#">Leer más →</a>
+                <div class="noticia-fecha">Junio 5, 2026</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonios">
+        <div class="testimonios-container">
+            <h2>Qué dicen nuestros clientes</h2>
+            <div class="testimonios-grid">
+                <div class="testimonio-card">
+                    <p>"La Dra. Morales brindó una excelente asesoría legal. Su profesionalismo y dedicación fueron excepcionales. Recomiendo ampliamente sus servicios a cualquiera que necesite asistencia jurídica de calidad."</p>
+                    <div class="testimonio-autor">- Carlos López</div>
+                </div>
+                <div class="testimonio-card">
+                    <p>"Gracias al equipo de trabajo de la Dra. Morales por resolver mi caso laboral de manera exitosa. La comunicación fue clara en todo momento y me mantuvieron informado constantemente."</p>
+                    <div class="testimonio-autor">- María González</div>
+                </div>
+                <div class="testimonio-card">
+                    <p>"El asesoramiento que recibimos fue fundamental para concretar nuestra operación inmobiliaria. La Dra. Morales mostró gran expertise y compromiso con nuestro caso."</p>
+                    <div class="testimonio-autor">- Jorge Fernández</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Datos de Contacto</h3>
+                <ul>
+                    <li>📍 Alem 240, 2º Piso</li>
+                    <li>Santiago del Estero, Capital</li>
+                    <li>📞 (0385) 154-020370</li>
+                    <li>📧 info@dramorales.com.ar</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Horarios de Atención</h3>
+                <ul>
+                    <li>Lunes a Viernes</li>
+                    <li>9:00 - 18:00 hs</li>
+                    <li>Atención de consultas</li>
+                    <li>por mail o teléfono</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">in</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Estudio Jurídico Dra. Rocio Morales. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
