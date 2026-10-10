@@ -96,6 +96,7 @@
   /* SERVICES */
   .services { background: var(--navy-light); }
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .cards .card:last-child:nth-child(3n+1) { grid-column: 2; }
   .card {
     background: var(--navy); border: 1px solid var(--border); border-radius: 10px;
     padding: 32px; transition: transform .2s, border-color .2s;
@@ -165,6 +166,7 @@
     .stat:nth-child(2) { border-right: none; }
     .about-grid { grid-template-columns: 1fr; }
     .cards { grid-template-columns: 1fr; }
+    .cards .card:last-child:nth-child(3n+1) { grid-column: auto; }
     .grid-2 { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
   }
@@ -176,7 +178,7 @@
   <div class="container nav">
     <a href="#inicio" class="brand">
       <span class="mark">&#9878;</span>
-      <span>Dra. Rocío Morales</span>
+      <span data-site="nombre">Dra. Rocío Morales</span>
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#inicio">Inicio</a>
@@ -211,7 +213,7 @@
         <div class="stat"><div class="num" data-count="15">0</div><div class="label">Años de experiencia</div></div>
         <div class="stat"><div class="num" data-count="850">0</div><div class="label">Casos resueltos</div></div>
         <div class="stat"><div class="num" data-count="98">0</div><div class="label">% de satisfacción</div></div>
-        <div class="stat"><div class="num" data-count="6">0</div><div class="label">Áreas de práctica</div></div>
+        <div class="stat"><div class="num" data-count="7">0</div><div class="label">Áreas de práctica</div></div>
       </div>
     </div>
   </section>
@@ -225,7 +227,7 @@
       <div>
         <p class="eyebrow">Sobre el estudio</p>
         <h2 class="section-title">Experiencia y cercanía en cada caso</h2>
-        <p class="section-lead">La Dra. Rocío Morales lidera un estudio dedicado a brindar soluciones jurídicas claras y efectivas, con un trato personalizado y absoluta confidencialidad.</p>
+        <p class="section-lead">La <span data-site="nombre">Dra. Rocío Morales</span> lidera un estudio dedicado a brindar soluciones jurídicas claras y efectivas, con un trato personalizado y absoluta confidencialidad.</p>
         <ul>
           <li><span class="tick">&#10003;</span> Atención personalizada y seguimiento de cada expediente.</li>
           <li><span class="tick">&#10003;</span> Asesoramiento preventivo para evitar conflictos.</li>
@@ -249,6 +251,7 @@
         <div class="card"><div class="icon">&#127970;</div><h3>Derecho Comercial</h3><p>Sociedades, contratos comerciales y asesoramiento a empresas.</p></div>
         <div class="card"><div class="icon">&#128196;</div><h3>Sucesiones</h3><p>Tramitación de sucesiones, herencias y declaratorias de herederos.</p></div>
         <div class="card"><div class="icon">&#127968;</div><h3>Derecho Inmobiliario</h3><p>Compraventa, alquileres, desalojos y regularización de propiedades.</p></div>
+        <div class="card"><div class="icon">&#129491;</div><h3>Derecho Previsional</h3><p>Jubilaciones, pensiones, reajuste de haberes y reconocimiento de servicios.</p></div>
       </div>
     </div>
   </section>
@@ -292,6 +295,7 @@
                 <option>Derecho Comercial</option>
                 <option>Sucesiones</option>
                 <option>Derecho Inmobiliario</option>
+                <option>Derecho Previsional</option>
                 <option>Otra</option>
               </select>
               <span class="error">Seleccioná un área.</span>
@@ -324,7 +328,7 @@
       <div>
         <a href="#inicio" class="brand" style="margin-bottom:18px;">
           <span class="mark">&#9878;</span>
-          <span>Dra. Rocío Morales</span>
+          <span data-site="nombre">Dra. Rocío Morales</span>
         </a>
         <p>Estudio jurídico comprometido con la defensa de tus derechos, brindando asesoramiento legal integral y personalizado.</p>
         <div class="socials">
@@ -335,24 +339,48 @@
       </div>
       <div>
         <h4>Contacto</h4>
-        <div class="contact-row"><span class="gold">&#9742;</span><a href="tel:+5491123456789">+54 9 11 2345 6789</a></div>
-        <div class="contact-row"><span class="gold">&#9993;</span><a href="mailto:estudiomorales@gmail.com">estudiomorales@gmail.com</a></div>
-        <div class="contact-row"><span class="gold">&#128205;</span><p>Av. Corrientes 1234, CABA, Argentina</p></div>
+        <div class="contact-row"><span class="gold">&#9742;</span><a data-site="tel" href="tel:+5493856785561">+54 9 385 678 5561</a></div>
+        <div class="contact-row"><span class="gold">&#9993;</span><a data-site="email" href="mailto:drarociomorales.10@gmail.com">drarociomorales.10@gmail.com</a></div>
       </div>
       <div>
         <h4>Horarios</h4>
-        <p>Lunes a Viernes<br/>9:00 - 18:00 hs</p>
+        <p data-site="horario">Lunes a Viernes<br/>8:00 - 13:00 y 17:00 - 21:00 hs</p>
         <p>Consultas con turno previo</p>
         <a href="#consulta" class="btn btn-gold" style="margin-top:10px;">Solicitar consulta</a>
       </div>
     </div>
-    <p class="copyright">&copy; <span id="year"></span> Estudio Jurídico Dra. Rocío Morales. Todos los derechos reservados.</p>
+    <p class="copyright">&copy; <span id="year"></span> Estudio Jurídico <span data-site="nombre">Dra. Rocío Morales</span>. Todos los derechos reservados.</p>
   </div>
 </footer>
 
 <script>
-  // Número de WhatsApp del estudio (formato internacional, sin + ni espacios)
-  var PHONE = "5491123456789";
+  // ============================================================
+  // CONFIGURACIÓN: editá solo este bloque para reutilizar la plantilla
+  // ============================================================
+  var SITE = {
+    nombre:    "Dra. Rocío Morales",
+    whatsapp:  "5493856785561",            // formato internacional, sin + ni espacios
+    telefono:  "+54 9 385 678 5561",       // como se muestra en pantalla
+    email:     "drarociomorales.10@gmail.com",
+    horario:   ["Lunes a Viernes", "8:00 - 13:00 y 17:00 - 21:00 hs"]
+  };
+  var PHONE = SITE.whatsapp;
+
+  // Aplica los datos a la página
+  (function applySite() {
+    document.title = "Estudio Jurídico " + SITE.nombre;
+    document.querySelectorAll('[data-site="nombre"]').forEach(function (el) { el.textContent = SITE.nombre; });
+    var tel = document.querySelector('[data-site="tel"]');
+    tel.textContent = SITE.telefono; tel.href = "tel:+" + SITE.whatsapp;
+    var mail = document.querySelector('[data-site="email"]');
+    mail.textContent = SITE.email; mail.href = "mailto:" + SITE.email;
+    var h = document.querySelector('[data-site="horario"]');
+    h.textContent = "";
+    SITE.horario.forEach(function (linea, i) {
+      if (i) h.appendChild(document.createElement("br"));
+      h.appendChild(document.createTextNode(linea));
+    });
+  })();
 
   // Año dinámico
   document.getElementById("year").textContent = new Date().getFullYear();
@@ -417,7 +445,7 @@
     if (!valid) return;
 
     var text =
-      "*Nueva consulta - Estudio Dra. Rocío Morales*%0A%0A" +
+      "*Nueva consulta - Estudio " + encodeURIComponent(SITE.nombre) + "*%0A%0A" +
       "*Nombre:* " + encodeURIComponent(nombre) + "%0A" +
       "*Email:* " + encodeURIComponent(email) + "%0A" +
       "*Teléfono:* " + encodeURIComponent(telefono) + "%0A" +
